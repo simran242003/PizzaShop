@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <title>Signup</title>
+  
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f4f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #f08020;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            background-color: #f08020;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #e07010;
+        }
+
+        p {
+            margin-top: 15px;
+            color: #666;
+        }
+
+        p a {
+            text-decoration: none;
+            color: #f08020;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form method="post" action="" th:action="@{/addUser}" th:object="${user}">
+        <h2>Sign up</h2>
+        <p>Create Username and Password for your account</p>
+        Username: <input type="text" name="username" th:field="*{username}" /><br>
+        Password: <input type="password" name="password" th:field="*{password}" /><br>
+        Email: <input type="text" name="email" th:field="*{email}" /><br>
+        <input type="submit" value="Sign up" />
+        <p>Already a user? <a th:href="@{/secure}">Sign in</a></p>
+    </form>
+
+</body>
+
+</html>

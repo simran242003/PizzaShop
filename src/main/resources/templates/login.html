@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <title>Signin</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f4f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #f08020;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            background-color: #f08020;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #e07010;
+        }
+
+        p {
+            margin-top: 15px;
+            color: #666;
+        }
+
+        p a {
+            text-decoration: none;
+            color: #f08020;
+            font-weight: bold;
+        }
+
+        .error {
+            color: #ff0000;
+            margin-top: 10px;
+        }
+
+        .success {
+            color: #008000;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body class="signup">
+    <form method="post" action="" th:action="@{/login}" th:object="${user}" class="signup-form">
+        <h2>Sign in</h2>
+        <p>Please sign in with your credentials to continue</p>
+        Username: <input type="text" name="username" /><br>
+        Password: <input type="password" name="password" /><br>
+        <input type="submit" value="Sign in" />
+        <p>Don't have an account? <a th:href="@{/signup}">Sign up</a></p>
+
+        <div th:if="${param.error}" class="error">
+            <div class="error">
+                Invalid credentials
+            </div>
+        </div>
+        <div th:if="${param.logout}" class="error">
+            <div class="success">
+                You have been logged out
+            </div>
+        </div>
+    </form>
+
+</body>
+
+</html>

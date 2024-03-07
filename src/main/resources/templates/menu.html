@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <title>Menu - Pizza House</title>
+        <style>
+		 .want-to-order {
+            background-color: #ff6f61;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            animation: pulsate 1.5s infinite;
+        }
+
+        .want-to-order a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .want-to-order a:hover {
+            text-decoration: underline;
+            transform: scale(1.1);
+        }
+
+        @keyframes pulsate {
+            0% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0.5;
+            }
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #ff6f61;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+         .menu {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        /* Styles for each menu item */
+        .menu-item {
+            width: 300px;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .menu-item img {
+            width: 80%;
+            max-height: 150px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .menu-item h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .menu-item p {
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+
+        .menu-item .price {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #ff6f61;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #ff6f61;
+            color: white;
+            clear: both;
+        }
+
+        .main-page-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .main-page-link a {
+           color: #ff6f61;
+            text-decoration: none;
+        }
+
+        .main-page-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+	
+	<div class="want-to-order">
+        <a href="/">Want to order ?? Go back to sign in or sign up</a>
+    </div>
+
+	
+	<header>
+        <h1>Delicious Pizzas at Pizza House</h1>
+        <p>Order your favorite pizza online now!</p>
+    </header>
+    <!-- Menu items -->
+    <h1>Our Menu</h1>
+ <div class="menu">
+    <!-- Pizza items -->
+    <div class="menu-item">
+        <img src="placeholder_image_url1.jpg" alt="Margherita Pizza">
+        <h2>Margherita Pizza</h2>
+        <p>A traditional Italian pizza with tomatoes, fresh mozzarella, basil, and olive oil on a thin crust.</p>
+        <p class="price">$8.99</p>
+    </div>
+    
+    <div class="menu-item">
+        <img src="placeholder_image_url2.jpg" alt="Pepperoni Pizza">
+        <h2>Pepperoni Pizza</h2>
+        <p>A classic American favorite topped with pepperoni slices and melted cheese.</p>
+        <p class="price">$10.99</p>
+    </div>
+    
+    <div class="menu-item">
+    <img src="placeholder_image_url3.jpg" alt="Vegetarian Pizza">
+    <h2>Vegetarian Pizza</h2>
+    <p>An array of fresh, colorful vegetables including bell peppers, onions, tomatoes, olives, and mushrooms layered on a thick pan crust with a generous serving of cheese.</p>
+    <p class="price">$9.49</p>
+</div>
+
+<!-- Supreme Pizza -->
+<div class="menu-item">
+    <img src="placeholder_image_url4.jpg" alt="Supreme Pizza">
+    <h2>Supreme Pizza</h2>
+    <p>Indulge in the ultimate pizza experience! Packed with a delicious medley of toppings including pepperoni, sausage, bell peppers, onions, olives, and mushrooms, all on a stuffed crust oozing with cheese.</p>
+    <p class="price">$12.99</p>
+</div>
+
+<!-- BBQ Chicken Pizza -->
+<div class="menu-item">
+    <img src="placeholder_image_url5.jpg" alt="BBQ Chicken Pizza">
+    <h2>BBQ Chicken Pizza</h2>
+    <p>Savor the tangy flavor of barbecue sauce perfectly complementing grilled chicken, caramelized onions, and a blend of mozzarella and cheddar cheese atop a thick, hearty crust.</p>
+    <p class="price">$11.49</p>
+</div>
+
+<!-- Hawaiian Pizza -->
+<div class="menu-item">
+    <img src="placeholder_image_url6.jpg" alt="Hawaiian Pizza">
+    <h2>Hawaiian Pizza</h2>
+    <p>A tropical delight featuring ham, pineapple, and mozzarella cheese on a thin, crispy crust.</p>
+    <p class="price">$9.99</p>
+</div>
+
+<!-- Meat Lovers Pizza -->
+<div class="menu-item">
+    <img src="placeholder_image_url7.jpg" alt="Meat Lovers Pizza">
+    <h2>Meat Lovers Pizza</h2>
+    <p>For the meat enthusiasts - loaded with pepperoni, sausage, ham, bacon, and beef, generously layered with cheese on a traditional crust.</p>
+    <p class="price">$11.49</p>
+</div>
+
+<!-- Mushroom Truffle Pizza -->
+<div class="menu-item">
+    <img src="placeholder_image_url8.jpg" alt="Mushroom Truffle Pizza">
+    <h2>Mushroom Truffle Pizza</h2>
+    <p>A gourmet treat with a blend of exotic mushrooms, truffle oil, caramelized onions, and a mix of cheeses on a thick pan crust.</p>
+    <p class="price">$13.99</p>
+</div>
+
+<!-- Four Cheese Pizza -->
+<div class="menu-item">
+    <img src="placeholder_image_url9.jpg" alt="Four Cheese Pizza">
+    <h2>Four Cheese Pizza</h2>
+    <p>A cheese lover’s dream! A perfect blend of mozzarella, cheddar, parmesan, and provolone cheese on a crispy thin crust.</p>
+    <p class="price">$10.99</p>
+</div>
+
+<!-- Buffalo Chicken Pizza -->
+<div class="menu-item">
+    <img src="placeholder_image_url10.jpg" alt="Buffalo Chicken Pizza">
+    <h2>Buffalo Chicken Pizza</h2>
+    <p>A spicy twist! Buffalo sauce, grilled chicken, red onions, and a drizzle of ranch dressing on a thick crust for a flavorful experience.</p>
+    <p class="price">$12.99</p>
+</div>
+
+    
+     </div> 
+
+    <!-- Link to main page (index) -->
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Pizza House. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

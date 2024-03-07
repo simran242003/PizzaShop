@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Shopping Cart</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #f08020;
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .cart-table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-table th,
+        .cart-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .cart-table th {
+            background-color: #f08020;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .cart-table td a {
+            text-decoration: none;
+            color: #f08020;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .cart-table td a:hover {
+            color: #e07010;
+            text-decoration: underline;
+        }
+
+        h2 {
+            text-align: right;
+            margin-right: 20px;
+            font-size: 22px;
+            color: #333;
+        }
+
+        button[type="submit"] {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 32px;
+            background-color: #f08020;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #e07010;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #f08020;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: #e07010;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Shopping Cart</h1>
+    <table class="cart-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Size</th>
+                <th>Crust</th>
+                <th>Quantity</th>
+                <th>price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterate over items in the shopping cart -->
+            <tr th:each="cart : ${cartList}">
+                <td th:text="${cart.name}"></td>
+                <td th:text="${cart.size}"></td>
+                <td th:text="${cart.crust}"></td>
+                <td th:text="${cart.quantity}"></td>
+                <td th:text="${cart.price}"></td>
+                <td><a th:href="@{/secure/deleteCart/}+${cart.name}">Remove</a></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <!-- Display total price of all items in the cart -->
+    <h2>Total: <span id="totalPrice" th:text="${totalPrice}"></span></h2>
+
+    <!-- Form to place order -->
+    <form action="/secure/placeOrder" method="post">
+        <button type="submit">Place Order</button>
+    </form>
+    
+    <a th:href="@{/secure}">Back to Home</a>
+</body>
+</html>

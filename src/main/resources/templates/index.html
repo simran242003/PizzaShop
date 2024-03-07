@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <title>Pizza House</title>
+    <style>
+        /* Reset default margin and padding */
+        body,
+        h1,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Styling for the background image */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('pizza-background.jpg'); /* Replace with your pizza background image */
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+        }
+
+        /* Navigation and Logo */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+        }
+
+        .logo {
+            font-size: 2em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Main content area */
+        .main-content {
+            text-align: center;
+            padding: 150px 20px;
+        }
+
+        h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Text shadow effect */
+        }
+
+        p {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 10px;
+            text-decoration: none;
+            color: #ffffff;
+            background-color: #ff6f61; /* Reddish color for buttons */
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            background-color: #d7443e; /* Darker shade on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <div class="navbar">
+        <div class="logo">Pizza House</div>
+        <div class="nav-links">
+            <a href="/signup" class="btn">Signup</a>
+            <a th:href="@{/secure}" class="btn">Sign In</a>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="main-content">
+        <h1>Welcome to Pizza House</h1>
+        <p>Discover a world of flavors. Order your favorite pizza.</p>
+        <a href="/menu" class="btn">View Menu</a>
+    </div>
+
+    <!-- Additional sections -->
+    <section id="menu">
+        <!-- Include your menu items here -->
+        <!-- Example: Pizza options with images, descriptions, and prices -->
+    </section>
+
+    <section id="about">
+        <!-- About section -->
+        <!-- Example: Information about Pizza House -->
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Pizza House. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

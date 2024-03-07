@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Pizza Details</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            text-align: center;
+        }
+
+        .button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            background-color: #f08020;
+            color: white;
+            margin: 10px;
+            display: inline-block;
+        }
+
+        .button:hover {
+            background-color: #e07010;
+        }
+
+        .pizza-details {
+            margin-top: 50px;
+        }
+
+        .pizza-details h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .pizza-details p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        select,
+        input {
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 12px 24px;
+            border-radius: 6px;
+            background-color: #f08020;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #e07010;
+        }
+
+        /* Adjustments for the logout button */
+        .banner-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .logout-button {
+            display: inline-block;
+        }
+
+        .btn-logout {
+            padding: 12px 24px;
+            background-color: #f08020;
+            color: white;
+            border: 2px solid #f08020;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .btn-logout:hover {
+            background-color: #e07010;
+        }
+    </style>
+</head>
+<body>
+    <a class="button" th:href="@{/secure}">Home Page</a>
+    <div class="pizza-details">
+        <h1 th:text="${pizza.name}"></h1>
+        <p th:text="${pizza.description}"></p>
+        
+        <form method="post" th:action="@{/secure/addToCart/}+${pizza.name}">
+            <label for="crust">Select Crust:</label>
+            <select id="crust" name="crust">
+                <option value="thin">Thin Crust</option>
+                <option value="thick">Thick Crust</option>
+                <option value="stuffed">Stuffed Crust</option>
+            </select>
+            <label for="size">Select Size:</label>
+            <select id="size" name="size">
+                <option value="small">Small</option>
+                <option value="medium">Medium</option>
+                <option value="large">Large</option>
+            </select>
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" value="1">
+            <button type="submit" class="button">Add to Cart</button>
+        </form>
+    </div>
+    <div class="banner-buttons">
+        <form method="post" th:action="@{/logout}" class="logout-button">
+            <input type="submit" value="Logout" class="btn btn-logout" />
+        </form>
+    </div>
+    <a class="button" th:href="@{/secure/cart}">Go to your Cart</a><br>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Insert New Pizza</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8e9d6; /* Light orange background */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #f59f51; /* Orange header text color */
+        }
+
+        .pizza-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            color: #f59f51; /* Orange label text color */
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #f59f51; /* Orange button background */
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #d18236; /* Darker orange on hover */
+        }
+
+        .navigation {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: #f59f51; /* Orange link color */
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Insert New Pizza</h1>
+        <form action="/addPizza" method="post" th:object="${pizza}" class="pizza-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" th:field="*{name}" required><br>
+
+            <label for="crust">Crust:</label>
+            <input type="text" id="crust" name="crust" th:field="*{crust}" required><br>
+
+            <label for="size">Size:</label>
+            <input type="text" id="size" name="size" th:field="*{size}" required><br>
+
+            <label for="price">Price:</label>
+            <input type="text" id="price" name="price" th:field="*{price}" required><br>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" th:field="*{description}" required></textarea><br>
+
+            <button type="submit">Submit</button>
+        </form>
+        <div class="navigation">
+            <a th:href="@{/secure}">Home Page</a>
+        </div>
+    </div>
+</body>
+
+</html>

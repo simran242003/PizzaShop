@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Order Placed</title>
+   
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .order-message {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .order-message h1 {
+            color: #f08020;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .order-message p {
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .tick-icon {
+            color: #55cc55;
+            font-size: 72px;
+            margin-bottom: 20px;
+        }
+
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f08020;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #e07010;
+        }
+    </style>
+</head>
+<body>
+    <div class="order-message">
+        <i class="fas fa-check-circle tick-icon"></i>
+        <h1>Thank you for your order!</h1>
+        <p>Your order has been successfully placed.</p>
+        <a th:href="@{/secure}">Home Page</a>
+    </div>
+</body>
+</html>

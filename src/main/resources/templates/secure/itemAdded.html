@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Online Bookstore</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        h1 {
+            color: #f08020;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        a.button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #f08020;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            margin: 10px;
+            font-size: 18px;
+            border: 1px solid #f08020;
+        }
+
+        a.button:hover {
+            background-color: #e07010;
+            border: 1px solid #e07010;
+        }
+
+        a.button:last-child {
+            background-color: transparent;
+            color: #f08020;
+        }
+
+        a.button:last-child:hover {
+            background-color: #f08020;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Item Added to Cart</h1>
+        <a class="button" th:href="@{/secure}">Go Back to Pizza List</a>
+        <a class="button" th:href="@{/secure/cart}">Go to your Cart</a>
+    </div>
+</body>
+</html>
